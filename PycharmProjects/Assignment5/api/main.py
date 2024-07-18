@@ -106,9 +106,9 @@ def delete_one_order_detail(order_detail_id: int,
 
 #HTTP Requests for sandwiches
 @app.post("/sandwiches/", response_model=schemas.Sandwich, tags=["Sandwiches"])
-def create_sandwich(q: schemas.SandwichCreate,
+def create_sandwich(sandwich: schemas.SandwichCreate,
                     db: Session = Depends(get_db)):
-    return sandwiches.creagit te(db=db, sandwich=sandwich)
+    return sandwiches.create(db=db, sandwich=sandwich)
 
 
 @app.get("/sandwiches/",
