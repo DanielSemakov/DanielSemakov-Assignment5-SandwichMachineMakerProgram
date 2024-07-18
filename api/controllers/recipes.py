@@ -3,19 +3,19 @@ from fastapi import HTTPException, status, Response, Depends
 from ..models import models, schemas
 
 def create(db: Session, recipe):
-  # Create a new instance of the Sandwich model with the provided data
+  # Create a new instance of the Recipe model with the provided data
   db_recipe = models.Recipe(
       sandwich_id = recipe.sandwich_id,
       resource_id = recipe.resource_id,
       amount = recipe.amount
   )
-  # Add the newly created Sandwich object to the database session
+  # Add the newly created Recipe object to the database session
   db.add(db_recipe)
   # Commit the changes to the database
   db.commit()
-  # Refresh the Sandwich object to ensure it reflects the current state in the database
+  # Refresh the Recipe object to ensure it reflects the current state in the database
   db.refresh(db_recipe)
-  # Return the newly created Sandwich object
+  # Return the newly created Recipe object
   return db_recipe
 
 
