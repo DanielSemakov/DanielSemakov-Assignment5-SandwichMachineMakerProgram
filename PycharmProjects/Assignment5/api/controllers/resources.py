@@ -5,7 +5,6 @@ from ..models import models, schemas
 def create(db: Session, resource):
   # Create a new instance of the Sandwich model with the provided data
   db_resource = models.Resource(
-      id = resource.id,
       item = resource.item,
       amount = resource.amount
   )
