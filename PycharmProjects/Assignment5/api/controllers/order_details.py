@@ -6,7 +6,6 @@ from ..models import models, schemas
 def create(db: Session, order_detail):
   # Create a new instance of the OrderDetail model with the provided data
   db_order_detail = models.OrderDetail(
-      id = order_detail.id,
       order_id = order_detail.order_id,
       sandwich_id = order_detail.sandwich_id,
       amount = order_detail.amount
